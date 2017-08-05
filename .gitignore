@@ -1,0 +1,6 @@
+.git/
+.idea/
+coverage/
+debug-ground/debug-on-nodejs/
+node_modules/
+temp/
