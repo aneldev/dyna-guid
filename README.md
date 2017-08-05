@@ -9,7 +9,9 @@ Also the starting first block is the random one and this helps the binary search
 # Samples
 
 1g6263bg-1h2c3a89-18046497750547120
+
 1f8900gh-1cg4e90g-54886797750547120
+
 1hf0d670-20h58e2d-38130897750547120
 
 # Comparison with .net guid
@@ -20,7 +22,7 @@ dyna guid: 1db35ac3-1fd43hh2-25211997750547120
 
 The difference is that dyna guid is 
 - hard to generate the same on the same millisecond per timezone _and_
-- impossible to generate the same even on next millisecond
+- impossible to generate the same on next millisecond
 
 # Usage
 
