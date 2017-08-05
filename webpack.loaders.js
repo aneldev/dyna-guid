@@ -6,7 +6,7 @@ module.exports = [
     test: /\.(jsx|js)$/,
     loader: 'babel-loader',
     query: {
-      presets: ['es2015', 'react', 'babel-polyfill', 'stage-2']
+      presets: ['es2015', 'babel-polyfill', 'stage-2']
     }
   },
   {
