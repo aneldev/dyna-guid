@@ -38,7 +38,7 @@ console.log('even stronger guid', guid(3));
 
 ## function guid(blocks: number = 2): string
 
-Block is a set of 7 numbers separated with dashes.
+Block is a set of 8 numbers separated with dashes.
 
 If you need even more complex guids (!why?) you can increase the number of blocks. Or for shorter set it to 1.
 
