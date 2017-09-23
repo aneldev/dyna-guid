@@ -8,7 +8,7 @@ const loaders = require('./webpack.loaders');
 
 console.log('');
 console.log('DEBUG with devtools in nodeJs ');
-console.log('WARNING: yous should run the `npm run debug-build` in order to debug your latest changes!');
+console.log('WARNING: you should run the `npm run debug-build` in order to debug your latest changes!');
 console.log('');
 
 const config = {
