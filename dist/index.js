@@ -83,13 +83,14 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const random = function () {
+var random = function () {
     return Math.floor(1000000000 + (Math.random() * 0x10000000 /* 65536 */)).toString(18).substr(0, 8);
 };
-exports.guid = (blocks = 2) => {
-    let date = new Date();
-    let datePart = (Number(date) * 3).toString().split("").reverse().join("");
-    let timeZonePart = new Date().getTimezoneOffset();
+exports.guid = function (blocks) {
+    if (blocks === void 0) { blocks = 2; }
+    var date = new Date();
+    var datePart = (Number(date) * 3).toString().split("").reverse().join("");
+    var timeZonePart = new Date().getTimezoneOffset();
     if (timeZonePart < 0) {
         timeZonePart = -timeZonePart;
         timeZonePart = '7' + timeZonePart;
@@ -97,8 +98,8 @@ exports.guid = (blocks = 2) => {
     else {
         timeZonePart = '3' + timeZonePart;
     }
-    let output = '';
-    for (let i = 0; i < blocks; i++)
+    var output = '';
+    for (var i = 0; i < blocks; i++)
         output += random() + '-';
     output += datePart;
     output += timeZonePart;

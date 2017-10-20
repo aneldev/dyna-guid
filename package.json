@@ -30,6 +30,7 @@
     "test": "npm run dist && jest --coverage --no-cache",
     "test-only": "jest --coverage --no-cache",
     "test-watch": "jest --watch --verbose",
+    "pp": "npm run publish-push",
     "publish-push": "npm version patch && npm publish && git push",
     "tpp": "npm run test-publish-push",
     "test-publish-push": "npm test && npm version patch && npm publish && git push",
