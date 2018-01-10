@@ -1,14 +1,4 @@
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define("dyna-guid", [], factory);
-	else if(typeof exports === 'object')
-		exports["dyna-guid"] = factory();
-	else
-		root["dyna-guid"] = factory();
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -70,50 +60,32 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/dist/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var random = function () {
-    return Math.floor(1000000000 + (Math.random() * 0x10000000 /* 65536 */)).toString(18).substr(0, 8);
-};
-exports.guid = function (blocks) {
-    if (blocks === void 0) { blocks = 2; }
-    var date = new Date();
-    var datePart = (Number(date) * 3).toString().split("").reverse().join("");
-    var timeZonePart = new Date().getTimezoneOffset();
-    if (timeZonePart < 0) {
-        timeZonePart = -timeZonePart;
-        timeZonePart = '7' + timeZonePart;
-    }
-    else {
-        timeZonePart = '3' + timeZonePart;
-    }
-    var output = '';
-    for (var i = 0; i < blocks; i++)
-        output += random() + '-';
-    output += datePart;
-    output += timeZonePart;
-    return output;
-};
+console.log('Debug application');
 
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-polyfill");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(1);
 module.exports = __webpack_require__(0);
 
 
 /***/ })
 /******/ ]);
-});

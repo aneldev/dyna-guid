@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
+    "lib": ["es2016", "es6", "dom"],
     "outDir": "./dist/",
     "declaration": true,
     "declarationDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "module": "commonjs",
     "target": "es5",
     "allowJs": false,
-    "types" : [ "node" ]
+    "noErrorTruncation": true,
+    "types": [
+      "node"
+    ]
   },
   "files": [
     "src/index.ts"

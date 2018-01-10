@@ -1,7 +1,7 @@
 declare let jasmine: any, describe: any, expect: any, it: any;
 jasmine.getEnv().defaultTimeoutInterval = 5000;
 
-import {guid} from '../src';
+import {guid} from '../../src';
 
 describe('dyna guid test', () => {
 
