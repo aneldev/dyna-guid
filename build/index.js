@@ -83,25 +83,28 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
+var random = function () {
+    return Math.floor(1000000000 + (Math.random() * 0x10000000 /* 65536 */)).toString(18).substr(0, 8);
+};
+exports.guid = function (blocks) {
+    if (blocks === void 0) { blocks = 2; }
+    var date = new Date();
+    var datePart = (Number(date) * 3).toString().split("").reverse().join("");
+    var timeZonePart = new Date().getTimezoneOffset();
+    if (timeZonePart < 0) {
+        timeZonePart = -timeZonePart;
+        timeZonePart = '7' + timeZonePart;
     }
-    getName() {
-        return this.name;
+    else {
+        timeZonePart = '3' + timeZonePart;
     }
-    getAge() {
-        return this.age;
-    }
-    get() {
-        return {
-            name: this.name,
-            age: this.age
-        };
-    }
-}
-exports.Person = Person;
+    var output = '';
+    for (var i = 0; i < blocks; i++)
+        output += random() + '-';
+    output += datePart;
+    output += timeZonePart;
+    return output;
+};
 
 
 /***/ }),
