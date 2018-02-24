@@ -16,7 +16,7 @@ const config = {
     // the entry application code
     path.resolve(__dirname, 'dev/index.ts')
   ],
-  externals: [],
+	externals: [],
   output: {
     path: path.resolve(__dirname, 'debug-ground/debug-dev-on-browser'),
     filename: 'debug-dev-browser.js'

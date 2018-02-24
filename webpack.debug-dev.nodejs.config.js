@@ -14,8 +14,8 @@ console.log('WARNING: you should run the `npm run debug-tests-build` in order to
 const config = {
   target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
   entry: [
-	  'babel-polyfill',
-	  // the entry application code
+    'babel-polyfill',
+    // the entry application code
     path.resolve(__dirname, 'dev/index.ts')
   ],
   externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
@@ -33,7 +33,7 @@ const config = {
   node: {
     fs: "empty"
   },
-  plugins: plugins
+  plugins: plugins,
 };
 
 module.exports = config;
