@@ -1,7 +1,7 @@
 {
   "name": "dyna-guid",
   "version": "1.0.6",
-  "description": "About",
+  "description": "Javascript GUID generator",
   "repository": {
     "type": "git",
     "url": "http://github.com/aneldev/dyna-guid"
