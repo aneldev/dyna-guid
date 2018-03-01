@@ -2,7 +2,7 @@
 
 A simple guid generator.
 
-**The chances to get the same guid is one in 5.642.219.814.912 on the same millisecond in the same timezone!**
+**The chance to get the same guid is one in 18,446,744,073,709,600,000 on the same millisecond in the same timezone!**
 
 Also the starting first block is the random one and this helps the binary search to find the guid with much less iterations.
 
