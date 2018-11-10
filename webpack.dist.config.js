@@ -6,20 +6,22 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
 const package_ = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-const loaders = require('./webpack.loaders');
+const rules = require('./webpack.loaders');
 const plugins = require('./webpack.plugins');
 
 const config = {
-	target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
-	entry: [
-		// do not load babel-polyfill here, the application should load the polyfills!
-		// the entry application code
-		path.resolve(__dirname, 'src/index.ts')
-	],
-	externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+	mode: "development",  // do not minify the code, this part of the app, not of the module
+	target: 'node',       // help: https://webpack.github.io/docs/configuration.html#target
+	entry: {
+		index: './src/index.ts',
+	},
+  externals: [nodeExternals()].concat(['fs', 'path']), // in order to ignore all modules in node_modules folder
+	optimization: {
+		usedExports: true,       // true to remove the dead code, for more https://webpack.js.org/guides/tree-shaking/
+	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'index.js',
+		filename: '[name].js',
 		publicPath: '/dist/',
 		library: package_.name,
 		libraryTarget: 'umd',
@@ -30,12 +32,18 @@ const config = {
 		extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]
 	},
 	module: {
-		loaders: loaders
+		rules,
 	},
-	plugins: plugins.concat([]),
 	node: {
-		fs: "empty"
+		// universal app? place here your conditional imports for node env
+		fs: "empty",
+		path: "empty",
+		child_process: "empty",
 	},
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),     // enable HMR globally
+		new webpack.NamedModulesPlugin(),             // prints more readable module names in the browser console on HMR updates
+	].concat(plugins),
 };
 
 module.exports = config;
