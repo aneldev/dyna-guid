@@ -1,6 +1,6 @@
 {
   "name": "dyna-guid",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Javascript GUID generator",
   "repository": {
     "type": "git",
@@ -44,7 +44,9 @@
     "release": "yarn build && yarn test && git add -u && git add -A && git commit --allow-empty -m \"Build changes\" && yarn publish-push",
     "upgrade-release": "yarn upgrade && yarn release"
   },
-  "keywords": ["guid"],
+  "keywords": [
+    "guid"
+  ],
   "author": "Anel dev",
   "license": "MIT",
   "dependencies": {},
