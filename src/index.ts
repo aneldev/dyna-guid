@@ -14,7 +14,9 @@ export const guid = (randomBlocks: number = 2): string => {
 };
 
 const randomBlock = (): string => {
-  return Number(Math.random().toString().substring(2)).toString(16).substring(0, 8);
+  return Number(Math.random().toString()
+    .substring(2)).toString(16)
+    .substring(0, 8);
 };
 
 export const isGuid = (guid: string, blocks = 2): string | true => {

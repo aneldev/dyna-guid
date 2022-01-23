@@ -6,7 +6,7 @@ import {
 describe("dyna guid", () => {
 
   test("Create a simple guid", () => {
-    let myGUID: string = guid();
+    const myGUID: string = guid();
     expect(myGUID).not.toBe(undefined);
     expect(myGUID).not.toBe(null);
     expect(myGUID.length > 14).toBe(true);
