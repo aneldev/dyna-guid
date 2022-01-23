@@ -58,7 +58,7 @@ If you need even more complex guids (!why?) you can increase the number of block
 
 Sample: 1g6263bg-1h2c3a89-18046497750547120
 
-## V2 20-Jav-2022
+## V2 20-Jan-2022
 
 Sample: 18ee7d36-14d00ef3-2f847b9703c45725c7
 
