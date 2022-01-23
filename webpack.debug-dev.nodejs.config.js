@@ -8,25 +8,20 @@ const nodeExternals = require('webpack-node-externals');
 const rules = require('./webpack.loaders');
 const plugins = require('./webpack.plugins');
 
-console.log('DEBUG with DevTools in nodeJs ');
-console.log('WARNING: you should run the `npm run debug-tests-build` in order to debug your latest changes!');
-
 const config = {
-	mode: "development",
-	target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
-  entry: [
-    path.resolve(__dirname, 'dev/index.ts')
-  ],
-	optimization: {
-		usedExports: true,       // true to remove the dead code, for more https://webpack.js.org/guides/tree-shaking/
-	},
-	devServer: {
-		hot: true,
-	},
-	externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
+  mode: "development",
+  target: 'node', // help: https://webpack.github.io/docs/configuration.html#target
+  entry: './src/webpack-debug-node.index.ts',
+  optimization: {
+    usedExports: true,       // true to remove the dead code, for more https://webpack.js.org/guides/tree-shaking/
+  },
+  devtool: "source-map",     // help: https://webpack.js.org/configuration/devtool/
+  devServer: {
+  },
+  externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
   output: {
     path: path.resolve(__dirname, 'debug-ground/debug-dev-on-nodejs'),
-    filename: 'index.js'
+    filename: 'index.js',
   },
   resolve: {
     alias: {},
@@ -35,16 +30,9 @@ const config = {
   module: {
     rules,
   },
-	node: {
-		// universal app? place here your conditional imports for node env
-		fs: "empty",
-		path: "empty",
-		child_process: "empty",
-	},
-	plugins: [
-		new webpack.HotModuleReplacementPlugin(),     // enable HMR globally
-		new webpack.NamedModulesPlugin(),             // prints more readable module names in the browser console on HMR updates
-	].concat(plugins),
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),     // enable HMR globally
+  ].concat(plugins),
 };
 
 module.exports = config;

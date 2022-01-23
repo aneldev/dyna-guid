@@ -1,28 +1,38 @@
-# About
+# dyna guid V2
 
 A simple guid generator.
 
 **The chance to get the same guid is one in 18,446,744,073,709,600,000 on the same millisecond in the same timezone!**
 
-Also the starting first block is the random one and this helps the binary search to find the guid with much less iterations.
-
 # Samples
 
-1g6263bg-1h2c3a89-18046497750547120
+139aca66-2024bc60-2f847b9701be62a163 // Fixed length: 36
 
-1f8900gh-1cg4e90g-54886797750547120
+12f5ade5-54356610-2f847b9702f0b91635
 
-1hf0d670-20h58e2d-38130897750547120
+216f48d8-233eb6b0-2f847b970379de20d6
 
-# Comparison with .net guid
+# Comparison with others
 
-dyna guid: 1db35ac3-1fd43hh2-25211997750547120
+```
+dyna guid v2: 1e955ef4-47939014-2f847b9700c03a2a3b
 
-.net guid: 30dd879c-ee2f-11db-8314-0800200c9a66
+dyna guid v1: 1g6263bg-1h2c3a89-18046497750547120
+
+   .net guid: 30dd879c-ee2f-11db-8314-0800200c9a66
+```
 
 The difference is that dyna guid is 
 - hard to generate the same on the same millisecond per timezone _and_
-- impossible to generate the same on next millisecond
+- impossible to generate the same on next millisecond!
+
+# dyna guid syntax
+
+```
+<random block>-<random block>-<timestamp>
+```
+
+The default of the random blocks is 2, would be 1 or any other number.
 
 # Usage
 
@@ -36,9 +46,21 @@ console.log('even stronger guid', guid(3));
 
 # Method
 
-## function guid(blocks: number = 2): string
+## function guid(randomBlocks: number = 2): string
 
 Block is a set of 8 chars separated with dashes.
 
 If you need even more complex guids (!why?) you can increase the number of blocks. Or for shorter set it to 1.
 
+# Change log
+
+## V1 05-Aug-2017
+
+Sample: 1g6263bg-1h2c3a89-18046497750547120
+
+## V2 20-Jav-2022
+
+Sample: 18ee7d36-14d00ef3-2f847b9703c45725c7
+
+- Fixed size, doesn't change cause current date
+- Better random blocks
