@@ -22,7 +22,7 @@ const randomBlock = (): string => {
 
 export const isGuid = (guid: string, blocks = 2): string | true => {
   const parts = guid.split("-");
-  const isV1 = isNumber(parts[parts.length-1]);
+  const isV1 = isNumber(parts[parts.length - 1]);
 
   if (parts.length - 1 !== blocks) return "Invalid guid, invalid number of blocks";
   const correctRandomBlocks =
