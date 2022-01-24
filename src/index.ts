@@ -1,3 +1,4 @@
+
 export const guid = (randomBlocks: number = 2): string => {
   const datePart = (Date.now() * 3).toString(16);
   const timeZone: any = new Date().getTimezoneOffset();
@@ -21,15 +22,21 @@ const randomBlock = (): string => {
 
 export const isGuid = (guid: string, blocks = 2): string | true => {
   const parts = guid.split("-");
+  const isV1 = isNumber(parts[parts.length-1]);
+
   if (parts.length - 1 !== blocks) return "Invalid guid, invalid number of blocks";
-  const correctBlocks =
+  const correctRandomBlocks =
     parts
       .concat()
       .slice(0, -1)
       .reduce((acc: boolean, block) => {
         return acc && block.length === 8 && !block.includes(" ");
       }, true);
-  if (!correctBlocks) return "Invalid guid, one or more blocks are invalid";
-  if (parts[parts.length - 1].length !== 18) return "Invalid guid, last date block has invalid size";
+  if (!correctRandomBlocks) return "Invalid guid, one or more random blocks are invalid";
+  if (!isV1 && parts[parts.length - 1].length !== 18) return "Invalid guid, last date block has invalid size";
   return true;
+};
+
+const isNumber = (n: any): boolean => {
+  return !isNaN(parseFloat(n)) && isFinite(n);
 };

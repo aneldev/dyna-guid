@@ -37,4 +37,10 @@ describe("dyna guid", () => {
   test("isGuid validation with wrong last block", () => {
     expect(isGuid("703d76b3-703d76b3-2f847b96d3ae7688")).toMatchSnapshot();
   });
+
+  test("validate v1 guids", () => {
+    expect(isGuid("1g6263bg-1h2c3a89-18046497750547120")).toBe(true);
+    expect(isGuid("1f8900gh-1cg4e90g-54886797750547120")).toBe(true);
+    expect(isGuid("1g6263bg-1h2c3a89-18046497750547120")).toBe(true);
+  });
 });
