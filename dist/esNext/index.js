@@ -21,18 +21,22 @@ var randomBlock = function () {
 export var isGuid = function (guid, blocks) {
     if (blocks === void 0) { blocks = 2; }
     var parts = guid.split("-");
+    var isV1 = isNumber(parts[parts.length - 1]);
     if (parts.length - 1 !== blocks)
         return "Invalid guid, invalid number of blocks";
-    var correctBlocks = parts
+    var correctRandomBlocks = parts
         .concat()
         .slice(0, -1)
         .reduce(function (acc, block) {
         return acc && block.length === 8 && !block.includes(" ");
     }, true);
-    if (!correctBlocks)
-        return "Invalid guid, one or more blocks are invalid";
-    if (parts[parts.length - 1].length !== 18)
+    if (!correctRandomBlocks)
+        return "Invalid guid, one or more random blocks are invalid";
+    if (!isV1 && parts[parts.length - 1].length !== 18)
         return "Invalid guid, last date block has invalid size";
     return true;
+};
+var isNumber = function (n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
 };
 //# sourceMappingURL=index.js.map
