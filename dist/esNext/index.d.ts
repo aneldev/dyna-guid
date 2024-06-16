@@ -1,2 +1,2 @@
-export declare const guid: (randomBlocks?: number) => string;
-export declare const isGuid: (guid: string, blocks?: number) => string | true;
+export { guid, isGuid, } from "./guid";
+export { shortGuid, isShortGuid, } from "./shortGuid";
