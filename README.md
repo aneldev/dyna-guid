@@ -2,7 +2,7 @@
 
 A simple guid generator based on timestamp!
 
-**The chance to get the same guid is one in 18,446,744,073,709,600,000 on the same millisecond in the same timezone!**
+**Within one process the guids are always unique. Across processes, the chance to get the same guid on the same millisecond is one in 295,147,905,179,352,825,856!**
 
 ## Samples
 
@@ -29,10 +29,12 @@ The difference is that dyna guid is
 ## dyna guid syntax
 
 ```
-<random block>-<random block>-<timestamp>
+<timestamp in ms (14 digits)><sequence (3 digits)><random...>   split as   <block>-<block>-<last block>
 ```
 
-The default of the random blocks is 2, would be 1 or any other number.
+The guids are sortable as plain strings by creation time, also when they are created on the same millisecond (the sequence keeps the order).
+
+The default of the blocks is 2, would be 1 or any other number.
 
 ## Usage
 
@@ -67,8 +69,10 @@ Short GUID is a one block guid without hyphen. Useful for short unique ids, easy
 ## dyna guid syntax
 
 ```
-<random block><timestamp>
+<timestamp in ms (14 digits)><sequence (3 digits)><random (9 hex)>
 ```
+
+Sortable, like the guid.
 ## Usage
 
 ```
@@ -97,3 +101,10 @@ Sample: 18ee7d36-14d00ef3-2f847b9703c45725c7
 ## V2 June-2024
 
 - short guid
+
+## V2 October-2026
+
+Sample: 01790945-68137700-0d6da4852c768078f3
+
+- Sortable guids and short guids, by creation time, even on the same millisecond
+- Same schema and size, backwards compatible
