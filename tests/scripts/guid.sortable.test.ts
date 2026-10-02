@@ -160,10 +160,10 @@ describe("dyna guid sortable", () => {
     });
 
     test("each guid is greater than the previous one", () => {
-      // const clock = mockClock(T);
+      const clock = mockClock(T);
       let previous = guid();
       for (let i = 0; i < 5000; i++) {
-        // clock.tick();
+        clock.tick();
         const current = guid();
         expect(current > previous).toBe(true);
         previous = current;
